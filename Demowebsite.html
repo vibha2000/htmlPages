@@ -1,0 +1,107 @@
+<html>
+<head>
+<title>Just Try to Do things..</title>
+<style>
+body{margin:0;padding:0;font-family:sans-serif;}
+.main{width:100%;height:100vh;position:relative;overflow:hidden;background:linear-gradient(to right, #9c27b0,#8ecdff)}
+nav{width:80%;position:sticky;margin:20px auto;z-index:1;display:flex;align-items:center;}
+.logo{flex-basis:20%}
+.logo img{width:150px;}
+.navlink{flex:1;text-align:right;}
+.navlink ul li{list-style:none;display:inline-block;margin:0 15px;}
+.navlink ul li a{color:#fff;text-decoration:none;}
+.information{width:1000px;height:1000px;position:absolute;top:50%;;left:-10%;transform:translateY(-50%);}
+#circle{width:1000px;height:1000px;position:absolute;top:0;;left:0;border-radius:50%;transform:rotate(0deg);transition:1s;}
+.features img{width:70px;}
+.features{position:absolute;display:flex;color:#fff;}
+.features div{margin-left:30px;}
+.features div p{margin-top:5px;}
+.one{top:450px;right:50px;}
+.two{top:150px;left:350px;transform:rotate(-90deg);}
+.three{bottom:450px;left:50px;transform:rotate(-180deg);}
+.four{bottom:150px;right:350px;transform:rotate(-270deg);}
+.mobile{width:200px;position:absolute;top:50%;left:35%;transform:translateY(-50%);z-index:1;}
+.controls{position:absolute;right:10%;top:50%;transform:translateY(-50%);text-align:center;}
+.controls h3{margin:15px 0;color:#fff;}
+#upbtn{width:15px;cursor:pointer;}
+#downbtn{width:15px;cursor:pointer;transform:rotate(180deg);}
+.overlay{width:0;height:0;border-top:500px solid #fff;border-right:500px solid transparent;border-bottom:500px solid #fff;
+border-left:500px solid #fff;position:absolute;left:0;top:0;}
+</style>
+</head>
+<body>
+<div class="main">
+  <nav>
+	<div class="logo">
+		<img src="images/logo.png">
+	</div>
+	<div class="navlink">
+		<ul>
+			<li><a href="#">Home</a></li>
+			<li><a href="#">Phone</a></li>
+			<li><a href="#">Accessories</a></li>
+			<li><a href="#">Cart</a></li>
+		</ul>
+	</div>
+  </nav>
+  <div class="information">
+	<div class="overlay"></div>
+	<img src="images/mobile.png" class="mobile"/>
+	<div id="circle">
+		<div class="features one">
+			<img src="images/camera.png"/>
+			<div>
+				<h2>Camera</h2>
+				<p>12MP, Wide Angle Lens</p>
+			</div>
+		</div>
+		<div class="features two">
+			<img src="images/processor.png"/>
+			<div>
+				<h2>Processor</h2>
+				<p>Snapdragon Octa-core 11nm</p>
+			</div>
+		</div>
+		<div class="features three">
+			<img src="images/display.png"/>
+			<div>
+				<h2>Display</h2>
+				<p>6.5" Mini-Drop FullScreen</p>
+			</div>
+		</div>
+		<div class="features four">
+			<img src="images/battery.png"/>
+			<div>
+				<h2>Battery Life</h2>
+				<p>5000mAh,720Hrs Standby</p>
+			</div>
+		</div>
+	</div>
+  </div>
+  <div class="controls">
+	<img src="images/arrow.png" id="upbtn"/>
+	<h3>Features</h3>
+	<img src="images/arrow.png"id="downbtn"/>
+  </div>
+</div>
+<script>
+var circle=document.getElementById("circle");
+var upbtn=document.getElementById("upbtn");
+var downbtn=document.getElementById("downbtn");
+var rotateValue=circle.style.transform;
+var rotateSum;
+
+upbtn.onclick=function(){
+	rotateSum=rotateValue+"rotate(-90deg)";
+	circle.style.transform=rotateSum;
+	rotateValue=rotateSum;
+}
+downbtn.onclick=function(){
+	rotateSum=rotateValue+"rotate(90deg)";
+	circle.style.transform=rotateSum;
+	rotateValue=rotateSum;
+}
+
+</script>
+</body>
+</html>

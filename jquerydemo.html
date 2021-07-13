@@ -1,0 +1,196 @@
+<html>
+<head>
+<script src="jquery-3.6.0.min.js"></script>
+<style >
+  #d1{
+    background: lightcyan;
+    height: auto;
+    width: 100%;
+  }
+
+  .d2{background: lightcyan;
+    height: auto;
+    width: 100%;
+    }
+
+    .fade{height: auto;
+    width: 100%;
+    background: lightcyan;}
+</style>
+</head>
+<body>
+<script>
+$(document).ready(function(){
+  //use of click event
+  $("button").click(function(){
+    //use of hide method
+    $("p").hide();
+    //apply css to the id of div tag
+    $("#d1").css("background","gray");
+   });
+  //use of hover method like mouseenter and mouseleave
+  $("p").hover(function () {
+      alert("you enterd p1");
+    },
+    function(){
+      alert(" now you leave p1");
+    });
+  //use of focus method for html form fields
+  $("input").focus(function(){
+    $(this).css("background","yellow");
+  });
+  //use of blur method for html form fields
+  $("input").blur(function(){
+$(this).css("background","green"); 
+  });
+  //USE of ON () method for multiple events at a time to select
+  //The on() method attaches one or more event handlers for the selected elements.
+  $(".d2").on({
+    mouseenter:function(){              //first event
+      $(this).css("background","blue"); 
+    },
+    mouseleave:function(){                    //second event
+      $(this).css("background","orange");  
+    },
+    click:function(){                      //third event
+      $(this).css("background","gray");
+    }
+  });
+  //use of hide() and show() method
+  $("#hide").click(function(){
+    $("h1").hide(1000);//here we use speed in milisecond also we can use "slow" and "fast"
+  });
+  $("#show").click(function(){
+    $("h1").show(1000);
+  });
+  //use of toggle function for hide and show
+$("#toggle").click(function(){
+  $("h1").toggle("slow");
+});
+//use of fadeIn() method
+$("#b1").click(function()
+  {
+    $("#d4").fadeIn();
+    $("#d5").fadeIn("slow");
+    $("#d6").fadeIn(3000);
+  });
+//use of fadeOut() method
+$("#b2").click(function()
+  {
+    $("#d7").fadeOut();
+    $("#d8").fadeOut("slow");
+    $("#d9").fadeOut(3000);
+  });
+//use of fadeToggle() method
+$("#b3").click(function()
+  {
+    $("#d10").fadeToggle();
+    $("#d11").fadeToggle("slow");
+    $("#d12").fadeToggle(3000);
+  });
+//use of fadeTo(speed,opacity) method
+$("#b4").click(function()
+  {
+    $("#d13").fadeTo("slow",0.1);
+    $("#d14").fadeTo("slow",0.2);
+    $("#d15").fadeTo("slow",0.3);
+  });
+//use of slideDown() method 
+$("#b5").click(function(){
+   $("#b6").slideDown("slow");
+   //same here you can use slideUp() and slideToggle(),slideTo() method
+});
+//use of animate()
+$("#animate").click(function(){
+  $("#div2").animate({left:'1200px',
+    opacity:'0.5',
+    height:'50px',
+    width:'50px'
+  });
+}); 
+$("#b9").click(function(){
+  $("#div3").animate({
+    height:'toggle'
+    
+  });
+}); 
+//use of stop() method
+$("#flip").click(function(){
+  $("#panel").slideDown(5000);
+});
+$("#b11").click(function(){
+  $("#panel").stop();
+});
+//use of callback() method  (callback function is active after  effect is done.)
+$("#but").click(function(){
+  $("#p").hide('slow',
+    function(){
+      alert("this paragraph is now hidden");
+    });
+});
+}); 
+</script>
+<button>click me</button>
+<p>vibha pandey</p></body>
+<div id="d1">
+ Name: <input type="text" name="fullname"/><br>
+ Email: <input type="text" name="email"/><br><br>
+ <button id="hide">hide</button>
+ <button id="show">show</button>
+ <h1>when you click on hide then I will dissappear</h1>
+ <h1>when you click on show then i will show you</h1>
+ <button id="toggle">toggle</button>
+
+</div>
+<div class="d2">
+  <h2>Our Second Box</h2>
+</div>
+<div class="fade">
+  <button id="b1" style="height: 50px;width: 300px;align-items: center;">use fadeIn method</button><br><br>
+  <div id="d4" style="background: red; display: none;height: 80px;width: 80;"></div><br>
+  <div id="d5" style="background: green;height: 80px;display: none;width: 80;"></div><br>
+  <div id="d6" style="background: yellow;height: 80px;display: none;width: 80;"></div>
+</div><br><br>
+<div class="fade">
+  <button id="b2" style="height: 50px;width: 300px;align-items: center;">use fadeOut method</button><br><br>
+  <div id="d7" style="background: red; height: 80px;width: 80;"></div><br>
+  <div id="d8" style="background: green;height: 80px;width: 80;"></div><br>
+  <div id="d9" style="background: yellow;height: 80px;width: 80;"></div>
+</div>
+<br><br>
+<div class="fade">
+  <button id="b3" style="height: 50px;width: 300px;align-items: center;">use fadeToggle method (fadeIn/fadeOut)</button><br><br>
+  <div id="d10" style="background: red; height: 80px;width: 80;"></div><br>
+  <div id="d11" style="background: green;height: 80px;width: 80;"></div><br>
+  <div id="d12" style="background: yellow;height: 80px;width: 80;"></div>
+</div><br><br>
+<div class="fade">
+  <button id="b4" style="height: 50px;width: 300px;align-items: center;">use fadeTo method with (speed and opacity)</button><br><br>
+  <div id="d13" style="background: red; height: 80px;width: 80;"></div><br>
+  <div id="d14" style="background: green;height: 80px;width: 80;"></div><br>
+  <div id="d15" style="background: yellow;height: 80px;width: 80;"></div>
+</div>
+
+<div>
+  <button id="b5">Click To Slide Down</button>
+</div>
+<div id="b6" style="background: lightcyan;height: 100px;width: 100%;display: none;">Hello Vibha Pandey</div>
+
+
+<div>
+  <button id="animate">click to animate</button>
+</div>
+<div id="div2" style="background: lightcyan;height: 30px;width: 80px;position: absolute;">hello Vibha pandey</div>
+<br><br>
+<button id="b9">click to animate for toggling</button>
+<br><br> 
+<div id="div3" style="background: lightcyan;height: 20px;width: 80px;position: absolute;">hello Vibha pandey</div>
+
+<div style="height: auto;width: 100%;background: lightcyan;">
+  <button id="b11">stop sliding</button>
+  <div id="flip" style="height: auto;width: 100%;background: green;padding: 5px;border-radius: 3px;">CLick to SLide down Panel</div>
+  <div id="panel" style="height: auto;width: 100%;background: blue;display: none;padding: 50px;border-radius: 3px;">Heloo VIbha</div>
+</div>
+<button id="but">Hide</button> 
+<p id="p">Use of callback() method</p>
+</html>
